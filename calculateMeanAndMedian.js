@@ -1,3 +1,4 @@
+"use strict"
 /*
 #################################
 ### Calculate Mean and Median ###
@@ -13,7 +14,6 @@ Output: [
 ##################################
 */
 
-// Please input the array of integers below
 let arrTest1 = [1, 2, 3, 5, 10, 20, -1, 0, 1, 0, 2, 3];
 console.log(countMeanAndMedian(arrTest1));
 /* Should return..
@@ -84,7 +84,6 @@ function countMedian (arr) {
     return ((arr[arr.length / 2] + arr[(arr.length / 2) - 1]) / 2);
   };
 };
-
 
 // ## -- Test cases --
 function testCases () {
