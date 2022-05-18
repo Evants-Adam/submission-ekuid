@@ -35,7 +35,7 @@ console.log(countMeanAndMedian(arrTest2));
 function countMeanAndMedian (arr) {
   // Input validations
   if (!Array.isArray(arr)) return "Input has to be an array of integers!";
-  if (arr.some(isNaN) || arr.some((el) => typeof el === "string") || arr.includes(null) || arr.includes("")) return "Array can only contain integers!"
+  if (arr.some(isNaN) || arr.some((el) => typeof el !== "number")) return "Array can only contain integers!"
   if (arr.length === 0) return "Array must contain at least 1 value!";
 
   const splitArray = splitPart(arr);

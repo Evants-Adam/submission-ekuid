@@ -33,7 +33,7 @@ async function convertCurrency (array) {
 
     if (!amount || !currency) return ("Amount or Currency Code cannot be empty!");
     if (amount <= 0) return ("Amount minimum is 1!")
-    if (isNaN(amount) || typeof amount === "string") return ("Amount should be in integer!");
+    if (isNaN(amount) || typeof amount !== "number") return ("Amount should be in integer!");
     if (!isNaN(currency) || currency.length !== 3) return ("Currency format should be in 3-letter currency code!");
 
     const checkForCurrency = await currencies(currency);
