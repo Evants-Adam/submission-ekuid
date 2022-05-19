@@ -100,26 +100,36 @@ function checkMoney (itemPrice, qty) {
   return moneyOutput;
 };
 
-// Test Cases
+// ## -- Test cases --
 // testCases();
 // function testCases () {
 //   console.log(checkMoney(230000, 4));
 //   // // Should return "Harga barang terlalu mahal!";
+
 //   console.log(checkMoney(23000, 11));
 //   // // Should return "Jumlah lembarannya terlalu banyak, maksimum 10 lembar!";
+
 //   console.log(checkMoney(230000, 4));
 //   // Should return "Harga barang terlalu mahal!";
+
 //   console.log(checkMoney(300, 3));
 //   // Should return Tidak ada pecahannya yang pas nih untuk barang seharga ini.;
+
 //   console.log(checkMoney(2, 10));
 //   // Should return Tidak ada pecahannya yang pas nih untuk barang seharga ini.;
+
 //   console.log(checkMoney(1, 1));
 //   // Should return [ 1000 ];
+
 //   console.log(checkMoney(100, 1));
 //   // Should return [ 1000 ];
+
 //   console.log(checkMoney());
 //   // Should return "Harga barang atau Jumlah lembar tidak boleh kosong!";
+
 //   console.log(checkMoney("100", 1));
 //   // Should return "Harga barang/Jumlah lembar harus berupa angka!";
+
 //   console.log(checkMoney(75500, 4))
+//   // Should return [ 50000, 20000, 5000, 1000 ];
 // };
