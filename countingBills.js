@@ -68,7 +68,7 @@ function checkMoney (itemPrice, qty) {
       // If result is unavailable (No denomination available for the qty and itemPrice)
       if (!checkResultB) return "Tidak ada pecahannya yang pas nih untuk barang seharga ini."
       
-      // If result is available
+      // If result is available but there is exist another solution
       let sumNumber = checkResultB.reduce((a, b) => a + b);
       if (sumNumber !== itemPrice) {
         let missingMoney = itemPrice - sumNumber;
@@ -76,7 +76,22 @@ function checkMoney (itemPrice, qty) {
         let combinedNumber = lastIndexOfCheckResult + missingMoney;
         let moneyIndex = newMoneyDenomination.findIndex((el) => el < combinedNumber);
         checkResultB.push(newMoneyDenomination[moneyIndex - 1]);
-        
+
+        let newSumNumberA = checkResultB.sort((a, b) => b - a).reduce((a, b) => a + b) - itemPrice;
+
+        let finalCheck = newMoneyDenomination.find((el) => el < newSumNumberA);
+
+        if (finalCheck) {
+          let checkResultC = checkResultB.map((el) => el);
+          checkResultC.pop();
+          checkResultC.push(finalCheck);
+          let newSumNumberB = checkResultC.sort((a, b) => b - a).reduce((a, b) => a + b);
+
+          if (newSumNumberB - itemPrice < newSumNumberA && newSumNumberB >= itemPrice) {
+            return checkResultC;
+          };
+        };
+
         return checkResultB.sort((a, b) => b - a);
       };
     };
@@ -106,4 +121,5 @@ function checkMoney (itemPrice, qty) {
 //   // Should return "Harga barang atau Jumlah lembar tidak boleh kosong!";
 //   console.log(checkMoney("100", 1));
 //   // Should return "Harga barang/Jumlah lembar harus berupa angka!";
+//   console.log(checkMoney(75500, 4))
 // };
