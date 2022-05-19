@@ -33,7 +33,7 @@ async function convertCurrency (array) {
 
     if (!amount || !currency) return ("Amount or Currency Code cannot be empty!");
     if (amount <= 0) return ("Amount minimum is 1!")
-    if (isNaN(amount) || typeof amount === "string") return ("Amount should be in integer!");
+    if (isNaN(amount) || typeof amount !== "number") return ("Amount should be in integer!");
     if (!isNaN(currency) || currency.length !== 3) return ("Currency format should be in 3-letter currency code!");
 
     const checkForCurrency = await currencies(currency);
@@ -104,19 +104,29 @@ async function currencies(currency) {
   });
 };
 
-// Test cases
 // testCases()
 // function testCases () {
 //   let checkMoney2 = [
 //     { "amount": -15000.0, "currency": "IDR" },
+//     // 'Amount minimum is 1!'
 //     { "amount": 3.1, "currency": "EUR" },
+//     // 3.26
 //     { "amount": 20000000.000, "currency": "IDR"},
-//     { }, // Test case 1
-//     { "amount": "ABC", "currency": "IDRR" }, // Test case 2
-//     { "amount": 100000, "currency": "IDRR" }, // Test case 3
+//     // 1362.55
+//     { },
+//     // 'Amount or Currency Code cannot be empty!'
+//     { "amount": "ABC", "currency": "IDRR" },
+//     // 'Amount should be in integer!',
+//     { "amount": 100000, "currency": "IDRR" },
+//     // 'Currency format should be in 3-letter currency code!',
 //     { "amount": "10000", "currency": "IDR" },
+//     // 'Amount should be in integer!',
 //     { "amounts": 10000, "currencys": "IDR"},
-//     { "amount": "", "currency": "IDR"}
+//     // 'Amount or Currency Code cannot be empty!'
+//     { "amount": "", "currency": "IDR"},
+//     // 'Amount or Currency Code cannot be empty!'
+//     { "amount": 20, "currency": "SDD"}
+//     // 'Currency is not registered'
 //   ];
   
 //   convertCurrency(checkMoney2)

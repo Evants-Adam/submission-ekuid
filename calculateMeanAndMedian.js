@@ -14,17 +14,8 @@ Output: [
 ##################################
 */
 
-let arrTest1 = [1, 2, 3, 5, 10, 20, -1, 0, 1, 0, 2, 3];
+let arrTest1 = [3, 4, 6, 17, 25, 21, 23];
 console.log(countMeanAndMedian(arrTest1));
-/* Should return..
-[
-  { mean: 6.83, median: 4 },
-  { mean: 0, median: 0 },
-  { mean: 1.67, median: 2 }
-]
-*/
-let arrTest2 = [3, 4, 6, 17, 25, 21, 23];
-console.log(countMeanAndMedian(arrTest2));
 /* Should return..
 [ 
   { mean: 11, median: 6 }, 
@@ -32,10 +23,20 @@ console.log(countMeanAndMedian(arrTest2));
 ]
 */
 
+let arrTest2 = [1, 2, 3, 5, 10, 20, -1, 0, 1, 0, 2, 3];
+console.log(countMeanAndMedian(arrTest2));
+/* Should return..
+[
+  { mean: 6.83, median: 4 },
+  { mean: 0, median: 0 },
+  { mean: 1.67, median: 2 }
+]
+*/
+
 function countMeanAndMedian (arr) {
   // Input validations
   if (!Array.isArray(arr)) return "Input has to be an array of integers!";
-  if (arr.some(isNaN) || arr.some((el) => typeof el === "string") || arr.includes(null) || arr.includes("")) return "Array can only contain integers!"
+  if (arr.some(isNaN) || arr.some((el) => typeof el !== "number")) return "Array can only contain integers!"
   if (arr.length === 0) return "Array must contain at least 1 value!";
 
   const splitArray = splitPart(arr);
@@ -86,32 +87,37 @@ function countMedian (arr) {
 };
 
 // ## -- Test cases --
-function testCases () {
-  let arrTest3 = {};
-  console.log(countMeanAndMedian(arrTest3));
-  // Should return "Input has to be an array!"
+// testCases()
+// function testCases () {
+//   let arrTest3 = {};
+//   console.log(countMeanAndMedian(arrTest3));
+//   // Should return "Input has to be an array!"
   
-  let arrTest4 = [1, 3, -1, -100, "a", "asd", "001"];
-  console.log(countMeanAndMedian(arrTest4));
-  // Should return "Array can only contain integers!"
+//   let arrTest4 = [1, 3, -1, -100, "a", "asd", "001"];
+//   console.log(countMeanAndMedian(arrTest4));
+//   // Should return "Array can only contain integers!"
   
-  let arrTest5 = [];
-  console.log(countMeanAndMedian(arrTest5));
-  // Should return "Array must contain at least 1 number!"
+//   let arrTest5 = [];
+//   console.log(countMeanAndMedian(arrTest5));
+//   // Should return "Array must contain at least 1 number!"
   
-  let arrTest6 = [1,2,23, {asd: 1}];
-  console.log(countMeanAndMedian(arrTest6));
-  // Should return "Array can only contain integers!"
+//   let arrTest6 = [1,2,23, {asd: 1}];
+//   console.log(countMeanAndMedian(arrTest6));
+//   // Should return "Array can only contain integers!"
   
-  let arrTest7 = [{}, {}];
-  console.log(countMeanAndMedian(arrTest7));
-  // Should return "Array can only contain integers!"
+//   let arrTest7 = [{}, {}];
+//   console.log(countMeanAndMedian(arrTest7));
+//   // Should return "Array can only contain integers!"
   
-  let arrTest8 = [[1, 2], {}];
-  console.log(countMeanAndMedian(arrTest8));
-  // Should return "Array can only contain integers!"
+//   let arrTest8 = [[1, 2], {}];
+//   console.log(countMeanAndMedian(arrTest8));
+//   // Should return "Array can only contain integers!"
   
-  let arrTest9 = ["123", 1, "001"]
-  console.log(countMeanAndMedian(arrTest9));
-  // Should return "Array can only contain integers!"
-}
+//   let arrTest9 = ["123", 1, "001"]
+//   console.log(countMeanAndMedian(arrTest9));
+//   // Should return "Array can only contain integers!"
+
+//   let arrTest10 = [0, 2, 3, 4]
+//   console.log(countMeanAndMedian(arrTest10));
+//   // Should return "Array can only contain integers!"
+// }
