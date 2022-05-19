@@ -104,6 +104,7 @@ async function currencies(currency) {
   });
 };
 
+// ## -- Test cases --
 // testCases()
 // function testCases () {
 //   let checkMoney2 = [

@@ -119,5 +119,5 @@ function countMedian (arr) {
 
 //   let arrTest10 = [0, 2, 3, 4]
 //   console.log(countMeanAndMedian(arrTest10));
-//   // Should return "Array can only contain integers!"
+//   // Should return [ { mean: 2.25, median: 2.5 } ]
 // }
